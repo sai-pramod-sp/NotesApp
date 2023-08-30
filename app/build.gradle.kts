@@ -74,4 +74,7 @@ dependencies {
 
     // Room
     implementation("androidx.room:room-runtime:2.3.0")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.38.1")
 }
