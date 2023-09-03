@@ -10,4 +10,3 @@ data class NotesState (
     val isOrderSectionVisible: Boolean = false
 )
 
-
