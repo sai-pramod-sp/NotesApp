@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android") version "2.44" apply false
 }
 
 android {
@@ -77,6 +79,8 @@ dependencies {
     implementation("androidx.room:room-runtime:2.3.0")
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.38.1")
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
 }

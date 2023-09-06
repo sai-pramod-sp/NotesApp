@@ -36,19 +36,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
+//import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.notesapp.feature_node.presentation.notes.Components.NoteItem
 import com.example.notesapp.feature_node.presentation.notes.Components.OrderSection
 import kotlinx.coroutines.launch
+import com.example.notesapp.feature_node.presentation.Util.Screen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NotesScreen(
     navController: NavController,
-    viewModel: NotesViewModel
+    viewModel: NotesViewModel = hiltViewModel()
 ){
     val state = viewModel.state.value
     val snackBarHostState = remember { SnackbarHostState() }
@@ -115,7 +117,10 @@ fun NotesScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-
+                                navController.navigate(
+                                    Screen.AddEditNoteScreen.route +
+                                            "?noteId=${note.id}&noteColor=${note.color}"
+                                )
                             },
                         onDeleteClick = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))
