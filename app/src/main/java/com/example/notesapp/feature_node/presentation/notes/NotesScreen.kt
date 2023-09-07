@@ -81,7 +81,7 @@ fun NotesScreen(
             ) {
                 Text(
                     text = "Your note",
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.headlineMedium
                 )
                 IconButton(
                     onClick = {
