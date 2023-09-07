@@ -40,13 +40,13 @@ fun OrderSection(
             DefaultRadioButton(
                 text = "Date",
                 selected = noteOrder is NoteOrder.Date,
-                onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+                onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Color",
                 selected = noteOrder is NoteOrder.Color,
-                onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+                onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
